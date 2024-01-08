@@ -114,33 +114,33 @@ while not status or res.find('failed') >= 0:
 lora.at('+ID')
                 
 
-#4112 rotate doser full circle
-#514 rotate doser one slot forward
+#4112 rotate dispenser full circle
+#514 rotate dispenser one slot forward
 
 pills_received(dose_counter, "dose")
 
 # Run doser
 while True:
     time.sleep(0.010)
-    if pin0.pressed(): # Calibrate doser start position, SW_0
+    if pin0.pressed(): # Calibrate dispenser to start position, SW_0
         print("dose_counter: ", dose_counter)
         print("day_counter: ", day_counter)
         display.poweroff()
         run = 1 # Permission to run
         opto_zero = True # Set True as a default value
 
-        if opto() == 0: # If opto returns zero, doser is still near start position
+        if opto() == 0: # If opto returns zero, dispenser is still near start position
             opto_zero = True
 
-        while run == 1: # Run doser while 1
+        while run == 1: # Run dispenser while 1
             motor.step(False)
             time.sleep(0.002)
             if opto() == 1 and opto_zero: # When opto stops returning 0
                 opto_zero = False 
-            if opto() == 0 and not opto_zero: # Opto 0 detected. Stop doser
+            if opto() == 0 and not opto_zero: # Opto 0 detected. Stop dispenser
                 run = 0
         
-                for i in range(140): # Position doser neatly to start position
+                for i in range(140): # Position dispenser neatly to start position
                     motor.step(False)
                     time.sleep(0.002)
                 counter.reset()
@@ -148,7 +148,7 @@ while True:
                 day_counter = 0
                 pills_received(dose_counter, "dose")
     
-    if pin1.pressed() and day_counter < max_days: # Move doser one slot ccw SW_1
+    if pin1.pressed() and day_counter < max_days: # Move dispenser one slot ccw SW_1
         counter.reset()
         day_counter += 1
         print("day_counter: ", day_counter)
