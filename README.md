@@ -1,7 +1,8 @@
-Pill dispenser script was created as a school project for a <b>RaspberryPi Pico</b> based pill dispenser. The goal was to create a pill dispenser that can calibrate itself to start position and dispense seven pills. 
-After seventh pill the dispenser stops operating and requires re-calibration.
+Pill dispenser was a school project done on a RaspberryPi Pico. 
 
-Imported classes and functions were provided by the course instructor and they are not included here. Therefore the script can't but executed as is.
+The goal was to create an "automated" seven slot pill dispenser that could calibrate itself to start position and dispense pills one slot at a time. The dispenser had a piezo sensor that was used to detect if the slot was empty (no pill falling on sensor). After detecting seven hits the pill dispenser stoped operating and required re-calibration.
+
+Imported classes and functions used in the project were provided by the course instructor and they are not included in the GitHub repo. Therefore the script can't but executed as is.
 
 <b>Contributors:</b>
 Gavril Tschokkinen
